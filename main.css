@@ -24,7 +24,7 @@ html {
   --color-section: #f5f5f5;
   --color-title: #468499;
   background-color: var(--color-font-lightgray);
-  height: 500vh;
+  word-break: keep-all;
 }
 
 a {
@@ -34,6 +34,7 @@ a {
 
 /* Header */
 header {
+  font-family: "Tenada";
   position: relative;
 }
 
@@ -156,4 +157,72 @@ header .align .switch-mode.dark-mode .check {
   background-repeat: no-repeat;
   background-size: contain;
   margin-bottom: 30px;
+}
+
+/* PokemonItem 서브페이지 */
+.pokemon-container {
+  font-family: "PFStarDust";
+  letter-spacing: 2px;
+  color: var(--color-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  margin: 40px auto;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 6px 5px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 1rem;
+}
+
+.pokemon-container .id {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+.pokemon-container .name {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.pokemon-container .gif {
+  width: 120px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-bottom: 30px;
+}
+
+.pokemon-container .genera {
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.pokemon-container .size {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.pokemon-container .size .size-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemon-container .size .size-box .description {
+  margin: 10px 20px;
+  padding: 10px 30px;
+  background-color: var(--color-title);
+  color: var(--color-white);
+  border-radius: 1rem;
+}
+
+.pokemon-container .text {
+  font-size: 20px;
+  text-align: center;
 }

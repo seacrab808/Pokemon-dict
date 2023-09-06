@@ -1,7 +1,7 @@
 import { fetchPokemon } from "../api/pokeApi";
 import { Component } from "../core/pokemon";
 
-export default class Search extends Component {
+export default class PokemonList extends Component {
   constructor() {
     super({
       tagName: "section",
@@ -16,14 +16,13 @@ export default class Search extends Component {
       const data = await fetchPokemon();
       console.log(data[0]);
 
-      // 포켓몬 이름을 "하하"와 함께 출력
       let html = `<ul class="pokemonList">`;
 
       for (let i = 0; i < 30; i++) {
         this.el.setAttribute("href", `#/pokemon?id=${i}`);
 
         html += /*html*/ `
-        <a href="#/pokemon?id=${data[i].id}">
+        <a href="#/pokemon?${data[i].id}">
           <li>
             <div class="content">
               <div class="name">
