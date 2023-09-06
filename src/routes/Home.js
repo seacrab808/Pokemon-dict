@@ -7,5 +7,6 @@ export default class Home extends Component {
 
     this.el.classList.add("container");
     this.el.append(headline);
+    console.log("Home 컴포넌트 렌더링됨"); // 로그 추가
   }
 }
