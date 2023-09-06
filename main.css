@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "PFStarDust";
+  src: url("./font/PF스타더스트\ Bold.ttf");
+}
+
+@font-face {
+  font-family: "Tenada";
+  src: url("./font/Tenada.ttf");
+}
+
+* {
+  font-family: "Tenada";
+  font-size: 16px;
+}
+
+html {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-font: #383838;
+  --color-font-darkgray: #6e6e6e;
+  --color-font-middlegray: #b7b7b7;
+  --color-font-lightgray: #f5f5f5;
+  --color-border: #d2d2d2;
+  --color-section: #f5f5f5;
+  --color-title: #468499;
+  background-color: var(--color-font-lightgray);
+  height: 500vh;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-font);
+}
+
+/* Header */
+header {
+  position: relative;
+}
+
+header .sticky {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 30px 60px;
+  font-size: 40px;
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  margin-top: 10px;
+  color: var(--color-title);
+  cursor: pointer;
+}
+
+header .align {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 200px;
+}
+
+header .align .like {
+  color: #ff6666;
+  position: relative;
+  top: 6px;
+  cursor: pointer;
+}
+
+header .align .switch-mode {
+  width: 80px;
+  height: 40px;
+  background-color: var(--color-title);
+  border-radius: 20px;
+  position: relative;
+  transition: 0.4s;
+  cursor: pointer;
+}
+header .align .switch-mode .check {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 4.5px;
+  left: 6px;
+  transition: 0.4s;
+}
+
+header .align .switch-mode.dark-mode {
+  background-color: #2a4f5b;
+}
+
+header .align .switch-mode.dark-mode .check {
+  left: 43px;
+}
+
+/* 검색 부분 */
+
+.search-box input {
+  display: block;
+  width: 40%;
+  margin: 40px auto;
+  padding: 17px 40px 13px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  outline: none;
+  color: var(--color-font);
+}
+
+/* 포켓몬 List */
+
+.pokemonList {
+  font-family: "PFStarDust";
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 60px;
+}
+
+.pokemonList li {
+  width: 300px;
+  height: 300px;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  border-radius: 30px;
+}
+
+.pokemonList li .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 60px;
+}
+
+.pokemonList li .name {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.pokemonList li .gif {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 80px;
+  height: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 30px;
+}

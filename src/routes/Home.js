@@ -1,12 +1,15 @@
 import { Component } from "../core/pokemon";
-import Headline from "../components/Headline";
+import TheHeader from "../components/TheHeader";
+import Search from "../components/Search";
+import PokemonList from "../components/PokemonList";
 
 export default class Home extends Component {
   render() {
-    const headline = new Headline().el;
+    const theHeader = new TheHeader().el;
+    const search = new Search().el;
+    const pokemonList = new PokemonList().el;
 
     this.el.classList.add("container");
-    this.el.append(headline);
-    console.log("Home 컴포넌트 렌더링됨"); // 로그 추가
+    this.el.append(theHeader, search, pokemonList);
   }
 }

@@ -1,0 +1,49 @@
+import { fetchPokemon } from "../api/pokeApi";
+import { Component } from "../core/pokemon";
+
+export default class Search extends Component {
+  constructor() {
+    super({
+      tagName: "section",
+    });
+    window.addEventListener("popstate", () => {
+      this.render();
+    });
+  }
+
+  async render() {
+    try {
+      const data = await fetchPokemon();
+      console.log(data[0]);
+
+      // 포켓몬 이름을 "하하"와 함께 출력
+      let html = `<ul class="pokemonList">`;
+
+      for (let i = 0; i < 30; i++) {
+        this.el.setAttribute("href", `#/pokemon?id=${i}`);
+
+        html += /*html*/ `
+        <a href="#/pokemon?id=${data[i].id}">
+          <li>
+            <div class="content">
+              <div class="name">
+                ${data[i].name}
+              </div>
+              <div style="background-image: url(${data[i].gif});" class="gif"></div>
+              <div class="types">
+                ${data[i].type}
+              </div>
+            </div>
+          </li>
+        </a>
+        `;
+      }
+
+      html += "</ul>";
+
+      this.el.innerHTML = html;
+    } catch (error) {
+      console.error("오류 발생:", error);
+    }
+  }
+}

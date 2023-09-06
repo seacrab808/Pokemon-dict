@@ -30,7 +30,7 @@ export const fetchPokemon = async () => {
                 result.egg_groups[1].name,
               ]);
             } else {
-              types.push(result.egg_groups[0].name);
+              types.push([result.egg_groups[0].name]);
             }
             koreanNames.push(result.names[2].name);
             genus.push(result.genera[1].genus);
