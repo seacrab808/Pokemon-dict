@@ -1,7 +1,7 @@
 import { fetchPokemon } from "../api/pokeApi";
 import { Component } from "../core/pokemon";
 
-export default class PokemonList extends Component {
+export default class Like extends Component {
   constructor() {
     super({
       tagName: "section",
@@ -14,23 +14,29 @@ export default class PokemonList extends Component {
   async render() {
     try {
       const data = await fetchPokemon();
-      console.log(data[0]);
+
+      let likeIds = [];
+
+      // 로컬 스토리지에서 ID를 가져오기
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        likeIds.push(key);
+      }
 
       let html = `<ul class="pokemonList">`;
 
-      for (let i = 0; i < 100; i++) {
-        this.el.setAttribute("href", `#/pokemon?id=${i}`);
-
+      for (let i = 0; i < likeIds.length; i++) {
+        const pokeID = likeIds[i] - 1;
         html += /*html*/ `
-        <a href="#/pokemon?${data[i].id}">
+        <a href="#/pokemon?${data[pokeID].id}">
           <li>
             <div class="content">
               <div class="name">
-                ${data[i].name}
+                ${data[pokeID].name}
               </div>
-              <div style="background-image: url(${data[i].gif});" class="gif"></div>
+              <div style="background-image: url(${data[pokeID].gif});" class="gif"></div>
               <div class="genera">
-                ${data[i].genera}
+                ${data[pokeID].genera}
               </div>
             </div>
           </li>

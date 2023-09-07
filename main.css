@@ -98,7 +98,6 @@ header .align .switch-mode.dark-mode .check {
 }
 
 /* 검색 부분 */
-
 .search-box input {
   display: block;
   width: 40%;
@@ -112,8 +111,14 @@ header .align .switch-mode.dark-mode .check {
   color: var(--color-font);
 }
 
-/* 포켓몬 List */
+@media screen and (max-width: 800px) {
+  .search-box input {
+    font-size: 12px;
+    width: 60%;
+  }
+}
 
+/* 포켓몬 List */
 .pokemonList {
   font-family: "PFStarDust";
   width: 80%;
@@ -139,11 +144,11 @@ header .align .switch-mode.dark-mode .check {
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 60px;
+  top: 55px;
 }
 
 .pokemonList li .name {
-  font-size: 22px;
+  font-size: 25px;
   margin-bottom: 30px;
 }
 
@@ -156,7 +161,21 @@ header .align .switch-mode.dark-mode .check {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 500px) {
+  .pokemonList {
+    position: relative;
+    left: -15px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .pokemonList {
+    position: relative;
+    left: 50px;
+  }
 }
 
 /* PokemonItem 서브페이지 */
@@ -174,16 +193,35 @@ header .align .switch-mode.dark-mode .check {
   box-shadow: 0 4px 6px 5px rgba(0, 0, 0, 0.1);
   padding: 40px;
   border-radius: 1rem;
+  position: relative;
 }
 
-.pokemon-container .id {
+.pokemon-container .like-btn {
+  font-family: "Tenada";
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pokemon-container .like-btn.no-heart {
+  color: #869ea5;
+}
+
+.pokemon-container .like-btn.heart {
+  color: #ff6666;
+}
+
+.pokemon-container .like-btn .pokemon-container .id {
   font-size: 25px;
-  margin-bottom: 30px;
 }
 
 .pokemon-container .name {
   font-size: 40px;
   font-weight: 700;
+  margin-top: 30px;
   margin-bottom: 15px;
 }
 
@@ -225,4 +263,33 @@ header .align .switch-mode.dark-mode .check {
 .pokemon-container .text {
   font-size: 20px;
   text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .pokemon-container {
+    width: 300px;
+    margin: 30px auto;
+  }
+}
+
+/* 검색 결과 없음 */
+.no-pokemon {
+  font-family: "PFStarDust";
+  letter-spacing: 2px;
+  text-align: center;
+  color: #383838;
+  margin: 40px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+a.go-back {
+  font-family: "PFStarDust";
+  text-align: center;
+  color: var(--color-font);
+  transition: 0.4s;
+}
+
+a.go-back:hover {
+  color: var(--color-title);
 }

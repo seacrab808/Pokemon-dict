@@ -23,6 +23,7 @@ export default class PokemonItem extends Component {
 
       this.el.innerHTML = /*html*/ `
         <div class="pokemon-container">
+          <div class="like-btn no-heart">❤</div>
           <div class="id"># ${data[pokeID].id}</div>
           <div class="name">${data[pokeID].name}</div>
           <div class="gif" style="background-image: url(${data[pokeID].gif});"></div>
@@ -39,11 +40,41 @@ export default class PokemonItem extends Component {
             </div>
           </div>
           <div class="text">${data[pokeID].text}</div>
-
-          
-
         </div>
       `;
+
+      // 이벤트 위임을 사용하여 좋아요 및 싫어요 버튼 이벤트 처리
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+
+        if (target.classList.contains("like-btn")) {
+          if (target.classList.contains("no-heart")) {
+            localStorage.setItem(data[pokeID].id, data[pokeID].id);
+            console.log("하트");
+            target.classList.remove("no-heart");
+            target.classList.add("heart");
+          } else if (target.classList.contains("heart")) {
+            localStorage.removeItem(data[pokeID].id);
+            console.log("지워");
+            target.classList.remove("heart");
+            target.classList.add("no-heart");
+          }
+        }
+      });
+
+      let likeIds = [];
+
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        likeIds.push(key * 1);
+      }
+
+      const likeBtn = document.querySelector(".like-btn");
+
+      if (likeIds.includes(data[pokeID].id)) {
+        likeBtn.classList.add("heart");
+        likeBtn.classList.remove("no-heart");
+      }
     } catch (error) {
       console.error("오류 발생:", error);
     }
