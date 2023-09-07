@@ -30,11 +30,28 @@ export default class TheHeader extends Component {
       </div>
     </div>
       `;
+
+    const root = document.querySelector("#root");
     const checkBox = document.querySelector(".switch-mode");
     const check = document.querySelector(".check");
 
+    // 다크 모드 토글 기능 추가
     check.addEventListener("click", () => {
       checkBox.classList.toggle("dark-mode");
+
+      // 다크 모드 토글 상태를 sessionStorage에 저장
+      const isDarkMode = checkBox.classList.contains("dark-mode");
+      sessionStorage.setItem("darkMode", isDarkMode);
+
+      // root 요소에도 다크 모드 클래스를 추가 또는 제거
+      root.classList.toggle("dark-mode", isDarkMode);
     });
+
+    // 페이지 로드 시 저장된 다크 모드 설정 불러오기
+    const savedDarkMode = sessionStorage.getItem("darkMode");
+    if (savedDarkMode === "true") {
+      checkBox.classList.add("dark-mode");
+      root.classList.add("dark-mode"); // 페이지 로드 시 root 요소에 다크 모드 클래스 추가
+    }
   }
 }

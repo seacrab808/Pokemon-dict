@@ -4,7 +4,7 @@ import { Component } from "../core/pokemon";
 export default class PokemonItem extends Component {
   constructor() {
     super({
-      tagName: "section",
+      tagName: "pokemon-item-section",
     });
     window.addEventListener("popstate", () => {
       this.render();

@@ -13,7 +13,7 @@
   font-size: 16px;
 }
 
-html {
+:root {
   --color-white: #fff;
   --color-black: #000;
   --color-font: #383838;
@@ -23,8 +23,19 @@ html {
   --color-border: #d2d2d2;
   --color-section: #f5f5f5;
   --color-title: #468499;
+}
+
+html {
   background-color: var(--color-font-lightgray);
   word-break: keep-all;
+}
+
+html #root.dark-mode {
+  background-color: #0e050f;
+}
+
+body {
+  position: relative;
 }
 
 a {
@@ -35,7 +46,9 @@ a {
 /* Header */
 header {
   font-family: "Tenada";
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 9;
 }
 
 header .sticky {
@@ -45,14 +58,21 @@ header .sticky {
   background-color: var(--color-white);
   padding: 30px 60px;
   font-size: 40px;
-  position: sticky;
-  top: 0;
+  opacity: 0.95;
+}
+
+#root.dark-mode header .sticky {
+  background-color: #1b3450;
 }
 
 header h1 {
   margin-top: 10px;
   color: var(--color-title);
   cursor: pointer;
+}
+
+#root.dark-mode h1 {
+  color: #f5f5f5;
 }
 
 header .align {
@@ -78,6 +98,7 @@ header .align .switch-mode {
   transition: 0.4s;
   cursor: pointer;
 }
+
 header .align .switch-mode .check {
   width: 30px;
   height: 30px;
@@ -90,11 +111,19 @@ header .align .switch-mode .check {
 }
 
 header .align .switch-mode.dark-mode {
-  background-color: #2a4f5b;
+  background-color: #1b3450;
 }
 
 header .align .switch-mode.dark-mode .check {
   left: 43px;
+}
+
+#root.dark-mode .switch-mode {
+  background-color: #f5f5f5;
+}
+
+#root.dark-mode .switch-mode .check {
+  background-color: #1b3450;
 }
 
 /* 검색 부분 */
@@ -118,6 +147,11 @@ header .align .switch-mode.dark-mode .check {
   }
 }
 
+#root.dark-mode .search-box input {
+  background-color: #dddddd;
+  color: #0e050f;
+}
+
 /* 포켓몬 List */
 .pokemonList {
   font-family: "PFStarDust";
@@ -136,6 +170,11 @@ header .align .switch-mode.dark-mode .check {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   margin: 20px;
   border-radius: 30px;
+}
+
+#root.dark-mode .pokemonList li {
+  background-color: #1b3450;
+  color: #d2d2d2;
 }
 
 .pokemonList li .content {
@@ -194,6 +233,21 @@ header .align .switch-mode.dark-mode .check {
   padding: 40px;
   border-radius: 1rem;
   position: relative;
+}
+
+#root.dark-mode .container {
+  background-color: #0e050f;
+}
+
+#root.dark-mode pokemon-item-section {
+  height: 100vh;
+  background-color: #0e050f;
+  display: block;
+}
+
+#root.dark-mode .pokemon-container {
+  background-color: #1b3450;
+  color: #d2d2d2;
 }
 
 .pokemon-container .like-btn {
@@ -292,4 +346,21 @@ a.go-back {
 
 a.go-back:hover {
   color: var(--color-title);
+}
+
+#root.dark-mode .no-pokemon {
+  color: #d2d2d2;
+}
+
+#root.dark-mode a.go-back {
+  color: #d2d2d2;
+}
+
+#root.dark-mode a.go-back:hover {
+  color: #3a70ad;
+}
+
+#root.dark-mode .container like-section {
+  display: block;
+  background-color: #0e050f;
 }

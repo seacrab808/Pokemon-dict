@@ -4,7 +4,7 @@ import { Component } from "../core/pokemon";
 export default class Like extends Component {
   constructor() {
     super({
-      tagName: "section",
+      tagName: "like-section",
     });
     window.addEventListener("popstate", () => {
       this.render();
